@@ -9,7 +9,7 @@ public class ArmstrongNo {
         int n2 = in.nextInt();
         int d = 0;
 
-        // ---- for range of fixed number of digits
+        // ---- for number in   range of fixed number of digits
 
         // counting number of digits
         /*
