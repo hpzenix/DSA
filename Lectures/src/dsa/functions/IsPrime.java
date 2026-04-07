@@ -5,30 +5,47 @@ import java.util.Scanner;
 public class IsPrime {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        int n = in.nextInt();
-//        boolean ans = isPrime(n);
-
-
-        // print all the three digit armstrong no.
-        for (int i=100; i<1000; i++) {
-            if (isArmstrong(i)) {
-                System.out.println(i);
+        System.out.println("What do you want to find? \n" +
+                "1. Prime no. in range \n" +
+                "2. Armstrong no. in range");
+        int input = in.nextInt();
+        if(input == 1){
+            System.out.println("Enter the range of numbers : ");
+            int n1 = in.nextInt();
+            int n2 = in.nextInt();
+            for (int i = n1; i <= n2 ; i++) {
+                if(isPrime(i)){
+                    System.out.print(i + ", ");
+                }
             }
         }
+        else if (input == 2) {
+            System.out.println("Enter the range of numbers: ");
+            int n1 = in.nextInt();
+            int n2 = in.nextInt();
+            for (int i=n1; i<=n2; i++) {
+                if (isArmstrong(i)) {
+                    System.out.print(i + ", ");
+                }
+            }
+        }
+
     }
 
-    // Print all the three digit armstrong no.
+    // Print armstrong no.
     static boolean isArmstrong(int n) {
         int original = n;
         int sum = 0;
+        int d = (int) (Math.log10(n) + 1);
         while (n>0) {
             int rem = n % 10;
             n /= 10;
-            sum = sum + rem*rem*rem;
+            sum = sum + (int)(Math.pow(rem,d));
         }
         return sum == original;
     }
 
+    // check prime no. or not
     static boolean isPrime(int n) {
         if (n<=1) {
             return false;
@@ -40,15 +57,6 @@ public class IsPrime {
             }
             c++;
         }
-        /*
-        if (c * c > n) {
-            return true;
-        }
-        else {
-            return false;
-        }
-        */
-
-        return c * c > n ;
+        return true;
     }
 }

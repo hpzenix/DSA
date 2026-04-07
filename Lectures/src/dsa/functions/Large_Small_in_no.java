@@ -2,7 +2,7 @@ package dsa.functions;
 
 import java.util.Scanner;
 
-public class LargestSmallestno {
+public class Large_Small_in_no {
 
     static int largest(Integer n){
         String s = n.toString();
